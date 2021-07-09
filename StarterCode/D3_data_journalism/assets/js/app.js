@@ -225,10 +225,10 @@ function makeResponsive() {
                       .classed("active", true)
                       .classed("inactive", false);
                   }
-                  albumsLabel
+                  smokesLabel
                   .classed("active", false)
                   .classed("inactive", true);
-                hairLengthLabel
+                healthcareLabel
                   .classed("active", true)
                   .classed("inactive", false);
               }
