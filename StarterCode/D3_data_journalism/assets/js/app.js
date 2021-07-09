@@ -207,5 +207,25 @@ function makeResponsive() {
 
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
+
+                // changes classes to change bold text
+                if (chosenXAxis === "num_albums") {
+                    albumsLabel
+                      .classed("active", true)
+                      .classed("inactive", false);
+                    hairLengthLabel
+                      .classed("active", false)
+                      .classed("inactive", true);
+                  }
+                  else {
+                    albumsLabel
+                      .classed("active", false)
+                      .classed("inactive", true);
+                    hairLengthLabel
+                      .classed("active", true)
+                      .classed("inactive", false);
+                  }
+                }
+              });
 };
 
