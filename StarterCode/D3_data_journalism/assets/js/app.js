@@ -225,6 +225,13 @@ function makeResponsive() {
                       .classed("active", true)
                       .classed("inactive", false);
                   }
+                  albumsLabel
+                  .classed("active", false)
+                  .classed("inactive", true);
+                hairLengthLabel
+                  .classed("active", true)
+                  .classed("inactive", false);
+              }
                 }
               });
 };
