@@ -22,25 +22,35 @@ function makeResponsive() {
   var width = svgWidth - margin.left - margin.right;
 
 // Read data
-d3.csv("./data/data.csv").then(function(censusData) {
-    console.log(censusData);
-    //name columns for later use
-    d.poverty = //cast decimal
-    d.age = //cast decimal
-    d.ageMoe = //cast decimal
-    d.income = +d.income
-    d.incomeMoe = +d.incomeMoe
-    d.healthcare = //cast decimal
-    d.healthcareLow = //cast deimal
-    d.healthcareHigh = //cast decimal
-    d.obesity = //cast decimal
-    d.obesityLow = //cast decimal
-    d.obesityHigh = //cast decimal
-    d.smokes = //cast decimal
-    d.smokesLow = //cast decimal
-    d.smokesHigh = //cast decimal
-});
+    d3.csv("./data/data.csv").then(function(censusData) {
+        console.log(censusData);
+        //name columns for later use
+        d.poverty = //cast decimal
+        d.age = //cast decimal
+        d.ageMoe = //cast decimal
+        d.income = +d.income
+        d.incomeMoe = +d.incomeMoe
+        d.healthcare = //cast decimal
+        d.healthcareLow = //cast deimal
+        d.healthcareHigh = //cast decimal
+        d.obesity = //cast decimal
+        d.obesityLow = //cast decimal
+        d.obesityHigh = //cast decimal
+        d.smokes = //cast decimal
+        d.smokesLow = //cast decimal
+        d.smokesHigh = //cast decimal
+        });
 
+    // append svg and group
+    var svg = d3.select("scatter")
+    .append("svg")
+    .attr("height", svgHeight)
+    .attr("width", svgWidth);
+
+    var chartGroup = svg.append("g")
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
+
+    
 
     
 };
