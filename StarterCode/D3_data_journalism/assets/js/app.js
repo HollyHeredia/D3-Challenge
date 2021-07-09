@@ -210,7 +210,7 @@ function makeResponsive() {
 
                 // changes classes to change bold text
                 if (chosenXAxis === "healthcare") {
-                    albumsLabel
+                    smokesLabel
                       .classed("active", true)
                       .classed("inactive", false);
                     healthcareLabel
@@ -218,21 +218,13 @@ function makeResponsive() {
                       .classed("inactive", true);
                   }
                   else {
-                    albumsLabel
+                    smokesLabel
                       .classed("active", false)
                       .classed("inactive", true);
                     healthcareLabel
                       .classed("active", true)
                       .classed("inactive", false);
                   }
-                  smokesLabel
-                  .classed("active", false)
-                  .classed("inactive", true);
-                healthcareLabel
-                  .classed("active", true)
-                  .classed("inactive", false);
-              }
-                }
               });
             }).catch(function(error) {
                 console.log(error);
