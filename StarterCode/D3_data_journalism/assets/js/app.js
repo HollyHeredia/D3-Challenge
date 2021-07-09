@@ -153,9 +153,26 @@ function makeResponsive() {
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
     .attr("cy", d => yLinearScale(d.poverty))
-    .attr("r", 20)
+    .attr("r", 5)
     .attr("fill", "blue")
 
+ // Create group for two x-axis labels
+ var labelsGroup = chartGroup.append("g")
+ .attr("transform", `translate(${width / 2}, ${height + 20})`);
+
+  var healthcareLabel = labelsGroup.append("text")
+ .attr("x", 0)
+ .attr("y", 20)
+ .attr("value", "healthcare") // value to grab for event listener
+ .classed("active", true)
+ .text("% of People with Healthcare)");
+
+  var smokesLabel = labelsGroup.append("text")
+ .attr("x", 0)
+ .attr("y", 40)
+ .attr("value", "smokes") // value to grab for event listener
+ .classed("inactive", true)
+ .text("% of People Who Smoke");
 
 
 
