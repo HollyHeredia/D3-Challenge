@@ -192,5 +192,11 @@ function makeResponsive() {
       // get value of selection
       var value = d3.select(this).attr("value");
       if (value !== chosenXAxis) {
+          // replaces chosenXAxis with value
+        chosenXAxis = value;
+
+        // functions here found above csv import
+        // updates x scale for new data
+        xLinearScale = xScale(censusData, chosenXAxis);
 };
 
