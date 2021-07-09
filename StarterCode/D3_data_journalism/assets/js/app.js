@@ -209,11 +209,11 @@ function makeResponsive() {
         circlesGroup = updateToolTip(chosenXAxis, circlesGroup);
 
                 // changes classes to change bold text
-                if (chosenXAxis === "num_albums") {
+                if (chosenXAxis === "healthcare") {
                     albumsLabel
                       .classed("active", true)
                       .classed("inactive", false);
-                    hairLengthLabel
+                    healthcareLabel
                       .classed("active", false)
                       .classed("inactive", true);
                   }
@@ -221,7 +221,7 @@ function makeResponsive() {
                     albumsLabel
                       .classed("active", false)
                       .classed("inactive", true);
-                    hairLengthLabel
+                    healthcareLabel
                       .classed("active", true)
                       .classed("inactive", false);
                   }
