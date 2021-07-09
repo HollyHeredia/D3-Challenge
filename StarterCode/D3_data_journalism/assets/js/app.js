@@ -183,6 +183,7 @@ function makeResponsive() {
     .classed("axis-text", true)
     .text("Poverty");
 
-    
+  // updateToolTip function above csv import
+  var circlesGroup = updateToolTip(chosenXAxis, circlesGroup)
 };
 
