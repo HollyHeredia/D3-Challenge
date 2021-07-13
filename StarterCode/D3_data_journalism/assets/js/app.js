@@ -108,20 +108,20 @@ function makeResponsive() {
         
         censusData.forEach(function(data) {
         //parse data -- name columns for later use
-        d.poverty = //cast decimal
-        d.age = //cast decimal
-        d.ageMoe = //cast decimal
+        d.poverty = +d.poverty
+        d.age = +d.age
+        d.ageMoe = +d.ageMoe
         d.income = +d.income
         d.incomeMoe = +d.incomeMoe
-        d.healthcare = //cast decimal
-        d.healthcareLow = //cast deimal
-        d.healthcareHigh = //cast decimal
-        d.obesity = //cast decimal
-        d.obesityLow = //cast decimal
-        d.obesityHigh = //cast decimal
-        d.smokes = //cast decimal
-        d.smokesLow = //cast decimal
-        d.smokesHigh = //cast decimal
+        d.healthcare = +d.healthcare
+        d.healthcareLow = +d.healthcareLow
+        d.healthcareHigh = +d.healthcareHigh
+        d.obesity = +d.obesity
+        d.obesityLow = +d.obesityLow
+        d.obesityHigh = +d.obesityHigh
+        d.smokes = +d.smokes
+        d.smokesLow = +d.smokesLow
+        d.smokesHigh = +d.smokesHigh
         });
 
       // xLinearScale function above csv import
