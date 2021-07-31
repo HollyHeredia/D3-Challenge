@@ -199,8 +199,9 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     .call(bottomAxis);
 
   // append y axis
-  chartGroup.append("g")
-    .call(leftAxis);
+  var yAxis = chartGroup.append("g")
+        .classed("y-axis", true)
+        .call(leftAxis);
 
   // append initial circles
   var circlesGroup = chartGroup.selectAll("circle")
@@ -227,7 +228,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 
 
   // Create group for 3 x-axis labels
-  var labelsGroup = chartGroup.append("g")
+  var xLabelsGroup = chartGroup.append("g")
     .attr("transform", `translate(${width / 2}, ${height + 20 + margin.top})`);
 
   var povertyLabel = xLabelsGroup.append("text")
@@ -292,7 +293,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
   var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
   // x axis labels event listener
-  labelsGroup.selectAll("text")
+  xLabelsGroup.selectAll("text")
     .on("click", function () {
       // get value of selection
       var value = d3.select(this).attr("value");
@@ -302,7 +303,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
         // updates x scale for new data
         xLinearScale = xScale(censusData, chosenXAxis);
         // updates x axis with transition
-        xAxis = renderAxes(xLinearScale, xAxis);
+        xAxis = renderAxesX(xLinearScale, xAxis);
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis,yLinearScale, chosenYAxis);
         // updates tooltips with new info
@@ -327,7 +328,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     });
 
     // y axis labels event listener
-    labelsGroup.selectAll("text")
+    yLabelsGroup.selectAll("text")
     .on("click", function () {
       // get value of selection
       var value = d3.select(this).attr("value");
@@ -337,7 +338,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
         // updates x scale for new data
         yLinearScale = yScale(censusData, chosenYAxis);
         // updates x axis with transition
-        yAxis = renderAxes(yLinearScale, yAxis);
+        yAxis = renderAxesY(yLinearScale, yAxis);
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis,yLinearScale, chosenYAxis);
         // updates tooltips with new info
