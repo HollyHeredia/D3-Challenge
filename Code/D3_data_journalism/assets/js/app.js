@@ -116,16 +116,16 @@ function styleX(value, chosenXAxis) {
     if (chosenYAxis === 'healthcare') {
         var yLabel = "No Healthcare:"
     }
-    //percentage obese
+    // percentage obese
     else if (chosenYAxis === 'obesity') {
         var yLabel = "Obesity:"
     }
-    //smoking percentage
+    // smoking percentage
     else {
         var yLabel = "Smokers:"
     }
 
-    //create tooltip
+    // create tooltip
     var toolTip = d3.tip()
         .attr("class", "d3-tip")
         .offset([-8, 0])
@@ -135,24 +135,28 @@ function styleX(value, chosenXAxis) {
 
   circlesGroup.call(toolTip);
 
-  circlesGroup.on("mouseover", function (data) {
-    toolTip.show(data);
-  })
-    // onmouseout event
-    .on("mouseout", function (data, index) {
-      toolTip.hide(data);
-    });
+  // add events
+  circlesGroup.on("mouseover", toolTip.show)
+  // onmouseout event
+  .on("mouseout", toolTip.hide(data);
 
   return circlesGroup;
 }
 
 // Read data
-d3.csv("data.csv", function(data){
-  d.poverty = +data.poverty;
-  d.healthcare = +data.healthcare;
-  return data;
-}).then(function(data) {
-  console.log(data);
+d3.csv("./assets/data/data.csv").then(function(censusData) {
+
+  console.log(censusData);
+
+  //parse data
+  censusData.forEach(function(data) {
+      data.obesity = +data.obesity;
+      data.income = +data.income;
+      data.smokes = +data.smokes;
+      data.age = +data.age;
+      data.healthcare = +data.healthcare;
+      data.poverty = +data.poverty;
+  });
 
   // // xLinearScale function above csv import
   // var xLinearScale = xScale(CensusData, chosenXAxis);
