@@ -94,6 +94,36 @@ function styleX(value, chosenXAxis) {
         return `${value}`;
     }
 }
+  // function used for updating circles group with new tooltip
+  function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
+
+    //select x label
+    //poverty percentage
+    if (chosenXAxis === 'poverty') {
+        var xLabel = "Poverty:";
+    }
+    //household income in dollars
+    else if (chosenXAxis === 'income') {
+        var xLabel = "Median Income:";
+    }
+    //age (number)
+    else {
+        var xLabel = "Age:";
+    }
+
+    //select y label
+    //percentage lacking healthcare
+    if (chosenYAxis === 'healthcare') {
+        var yLabel = "No Healthcare:"
+    }
+    //percentage obese
+    else if (chosenYAxis === 'obesity') {
+        var yLabel = "Obesity:"
+    }
+    //smoking percentage
+    else {
+        var yLabel = "Smokers:"
+    }
 
   circlesGroup.call(toolTip);
 
