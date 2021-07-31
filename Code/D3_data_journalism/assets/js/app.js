@@ -125,6 +125,14 @@ function styleX(value, chosenXAxis) {
         var yLabel = "Smokers:"
     }
 
+    //create tooltip
+    var toolTip = d3.tip()
+        .attr("class", "d3-tip")
+        .offset([-8, 0])
+        .html(function(d) {
+            return (`${d.state}<br>${xLabel} ${styleX(d[chosenXAxis], chosenXAxis)}<br>${yLabel} ${d[chosenYAxis]}%`);
+        });
+
   circlesGroup.call(toolTip);
 
   circlesGroup.on("mouseover", function (data) {
