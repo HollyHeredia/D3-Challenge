@@ -209,7 +209,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     .enter()
     .append("circle")
     .attr("cx", d => xLinearScale(d[chosenXAxis]))
-    .attr("cy", d => yLinearScale(d.poverty))
+    .attr("cy", d => yLinearScale(d.[chosenYAxis]))
     .attr("r", 12)
     .attr("fill", "blue")
     .attr("opacity", ".5");
@@ -306,6 +306,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
         xAxis = renderAxesX(xLinearScale, xAxis);
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis,yLinearScale, chosenYAxis);
+        //update text with new x values
+        textGroup = renderText(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
         // change classes to change bold text
@@ -333,7 +335,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
       // get value of selection
       var value = d3.select(this).attr("value");
       if (value !== chosenYAxis) {
-        // replaces chosenXAxis with value
+        // replaces chosenYAxis with value
         chosenYAxis = value;
         // updates x scale for new data
         yLinearScale = yScale(censusData, chosenYAxis);
@@ -341,6 +343,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
         yAxis = renderAxesY(yLinearScale, yAxis);
         // updates circles with new x values
         circlesGroup = renderCircles(circlesGroup, xLinearScale, chosenXAxis,yLinearScale, chosenYAxis);
+        //update text with new x values
+        textGroup = renderText(textGroup, xLinearScale, chosenXAxis, yLinearScale, chosenYAxis);
         // updates tooltips with new info
         circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
         // change classes to change bold text
