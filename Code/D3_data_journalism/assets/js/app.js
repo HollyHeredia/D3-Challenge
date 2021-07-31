@@ -185,7 +185,19 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     .attr("cy", d => yLinearScale(d.poverty))
     .attr("r", 12)
     .attr("fill", "blue")
-    .attr("opacity", ".5")
+    .attr("opacity", ".5");
+
+  // append initial text for states
+  var textGroup = chartGroup.selectAll(".stateText")
+        .data(censusData)
+        .enter()
+        .append("text")
+        .classed("stateText", true)
+        .attr("x", d => xLinearScale(d[chosenXAxis]))
+        .attr("y", d => yLinearScale(d[chosenYAxis]))
+        .attr("dy", 3)
+        .attr("font-size", "10px")
+        .text(function(d){return d.abbr});
 
 
 //   // Create group for two x-axis labels
