@@ -60,7 +60,8 @@ function renderCircles(circlesGroup, newXScale, chosenXAxis, newYScale, chosenYA
 
   circlesGroup.transition()
     .duration(1000)
-    .attr("cx", d => newXScale(d[chosenXAxis]));
+    .attr("cx", data => newXScale(data[chosenXAxis]))
+    .attr("cy", data => newYScale(data[chosenYAxis]));
 
   return circlesGroup;
 }
