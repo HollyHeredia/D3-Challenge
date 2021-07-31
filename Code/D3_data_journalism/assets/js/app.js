@@ -77,24 +77,23 @@ function renderText(textGroup, newXScale, chosenXAxis, newYScale, chosenYAxis) {
   return textGroup;
 }
 
-// function used for updating circles group with new tooltip
-function updateToolTip(chosenXAxis, circlesGroup) {
+// function to stylize x-axis values for tooltips
+function styleX(value, chosenXAxis) {
 
-  var label;
-
-  if (chosenXAxis === "smokes") {
-    label = "Smokes:";
+    //stylize based on variable chosen
+    //poverty percentage
+    if (chosenXAxis === 'poverty') {
+      return `${value}%`;
   }
-  else {
-    label = "Error:";
-  }
-
-  var toolTip = d3.tip()
-    .attr("class", "tooltip")
-    .offset([80, -60])
-    .html(function (d) {
-      return (`${d.state}<br>${income} ${d[chosenXAxis]}`);
-    });
+    //household income in dollars
+    else if (chosenXAxis === 'income') {
+        return `$${value}`;
+    }
+    //age (number)
+    else {
+        return `${value}`;
+    }
+}
 
   circlesGroup.call(toolTip);
 
