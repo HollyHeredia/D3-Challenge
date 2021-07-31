@@ -228,14 +228,39 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     .attr("value", "income")
     .text("Household Income (Median)")
 
-//   // append y axis
-//   chartGroup.append("text")
-//     .attr("transform", "rotate(-90)")
-//     .attr("y", 0 - margin.left)
-//     .attr("x", 0 - (height / 2))
-//     .attr("dy", "1em")
-//     .classed("axis-text", true)
-//     .text("Poverty");
+  // append y axis
+  var yLabelsGroup = chartGroup.append("g")
+        .attr("transform", `translate(${0 - margin.left/4}, ${(height/2)})`);
+
+        var healthcareLabel = yLabelsGroup.append("text")
+        .classed("aText", true)
+        .classed("active", true)
+        .attr("x", 0)
+        .attr("y", 0 - 20)
+        .attr("dy", "1em")
+        .attr("transform", "rotate(-90)")
+        .attr("value", "healthcare")
+        .text("Lacks Healthcare (%)");
+
+    var smokesLabel = yLabelsGroup.append("text")
+        .classed("aText", true)
+        .classed("inactive", true)
+        .attr("x", 0)
+        .attr("y", 0 - 40)
+        .attr("dy", "1em")
+        .attr("transform", "rotate(-90)")
+        .attr("value", "smokes")
+        .text("Smokes (%)");
+
+    var obesityLabel = yLabelsGroup.append("text")
+        .classed("aText", true)
+        .classed("inactive", true)
+        .attr("x", 0)
+        .attr("y", 0 - 60)
+        .attr("dy", "1em")
+        .attr("transform", "rotate(-90)")
+        .attr("value", "obesity")
+        .text("Obese (%)");  
 
 //   // updateToolTip function above csv import
 //   var circlesGroup = updateToolTip(chosenXAxis, circlesGroup)
