@@ -200,23 +200,33 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
         .text(function(d){return d.abbr});
 
 
-//   // Create group for two x-axis labels
-//   var labelsGroup = chartGroup.append("g")
-//     .attr("transform", `translate(${width / 2}, ${height + 20})`);
+  // Create group for 3 x-axis labels
+  var labelsGroup = chartGroup.append("g")
+    .attr("transform", `translate(${width / 2}, ${height + 20 + margin.top})`);
 
-//   var healthcareLabel = labelsGroup.append("text")
-//     .attr("x", 0)
-//     .attr("y", 20)
-//     .attr("value", "healthcare") // value to grab for event listener
-//     .classed("active", true)
-//     .text("% of People with Healthcare)");
+  var povertyLabel = xLabelsGroup.append("text")
+    .classed("aText", true)
+    .classed("active", true)
+    .attr("x", 0)
+    .attr("y", 20)
+    .attr("value", "poverty")
+    .text("In Poverty (%)");
 
-//   var smokesLabel = labelsGroup.append("text")
-//     .attr("x", 0)
-//     .attr("y", 40)
-//     .attr("value", "smokes") // value to grab for event listener
-//     .classed("inactive", true)
-//     .text("% of People Who Smoke");
+  var ageLabel = xLabelsGroup.append("text")
+    .classed("aText", true)
+    .classed("inactive", true)
+    .attr("x", 0)
+    .attr("y", 40)
+    .attr("value", "age")
+    .text("Age (Median)")
+
+  var incomeLabel = xLabelsGroup.append("text")
+    .classed("aText", true)
+    .classed("inactive", true)
+    .attr("x", 0)
+    .attr("y", 60)
+    .attr("value", "income")
+    .text("Household Income (Median)")
 
 //   // append y axis
 //   chartGroup.append("text")
