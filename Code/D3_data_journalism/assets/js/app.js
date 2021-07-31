@@ -28,8 +28,9 @@ var chart = d3.select("#scatter")
 var chartGroup = svg.append("g")
   .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
-// Initial Params
-var chosenXAxis = "healthcare";
+//initial Parameters
+var chosenXAxis = "poverty";
+var chosenYAxis = "healthcare";
 
 // function used for updating x-scale var upon click on axis label
 function xScale(censusData, chosenXAxis) {
