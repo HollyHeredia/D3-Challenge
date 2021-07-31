@@ -43,15 +43,15 @@ function renderAxesX(newXScale, xAxis) {
   return xAxis;
 }
 
-// function used for updating xAxis var upon click on axis label  
-function renderAxes(newXScale, xAxis) {
-  var bottomAxis = d3.axisBottom(newXScale);
+//function used for updating yAxis var upon click on axis label
+function renderAxesY(newYScale, yAxis) {
+  var leftAxis = d3.axisLeft(newYScale);
 
-  xAxis.transition()
-    .duration(1000)
-    .call(bottomAxis);
+  yAxis.transition()
+      .duration(1000)
+      .call(leftAxis);
 
-  return xAxis;
+  return yAxis;
 }
 
 // function used for updating circles group with a transition to
