@@ -162,29 +162,31 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
   var xLinearScale = xScale(censusData, chosenXAxis);
   var yLinearScale = yScale(censusData, chosenYAxis);
 
-//   // Create initial axis functions
-//   var bottomAxis = d3.axisBottom(xLinearScale);
-//   var leftAxis = d3.axisLeft(yLinearScale);
+  // Create initial axis functions
+  var bottomAxis = d3.axisBottom(xLinearScale);
+  var leftAxis = d3.axisLeft(yLinearScale);
 
-//   // append x axis
-//   var xAxis = chartGroup.append("g")
-//     .classed("x-axis", true)
-//     .attr("transform", `translate(0, ${height})`)
-//     .call(bottomAxis);
+  // append x axis
+  var xAxis = chartGroup.append("g")
+    .classed("x-axis", true)
+    .attr("transform", `translate(0, ${height})`)
+    .call(bottomAxis);
 
-//   // append y axis
-//   chartGroup.append("g")
-//     .call(leftAxis);
+  // append y axis
+  chartGroup.append("g")
+    .call(leftAxis);
 
-//   // append initial circles
-//   var circlesGroup = chartGroup.selectAll("circle")
-//     .data(censusData)
-//     .enter()
-//     .append("circle")
-//     .attr("cx", d => xLinearScale(d[chosenXAxis]))
-//     .attr("cy", d => yLinearScale(d.poverty))
-//     .attr("r", 5)
-//     .attr("fill", "blue")
+  // append initial circles
+  var circlesGroup = chartGroup.selectAll("circle")
+    .data(censusData)
+    .enter()
+    .append("circle")
+    .attr("cx", d => xLinearScale(d[chosenXAxis]))
+    .attr("cy", d => yLinearScale(d.poverty))
+    .attr("r", 12)
+    .attr("fill", "blue")
+    .attr("opacity", ".5")
+
 
 //   // Create group for two x-axis labels
 //   var labelsGroup = chartGroup.append("g")
