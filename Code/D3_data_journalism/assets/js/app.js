@@ -158,13 +158,9 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
       data.poverty = +data.poverty;
   });
 
-  // // xLinearScale function above csv import
-  // var xLinearScale = xScale(CensusData, chosenXAxis);
-
-  // // Create y scale function
-  // var yLinearScale = d3.scaleLinear()
-  //   .domain([0, d3.max(CensusData, d => d.poverty)])
-  //   .range([height, 0]);
+  // create linear scales
+  var xLinearScale = xScale(censusData, chosenXAxis);
+  var yLinearScale = yScale(censusData, chosenYAxis);
 
 //   // Create initial axis functions
 //   var bottomAxis = d3.axisBottom(xLinearScale);
